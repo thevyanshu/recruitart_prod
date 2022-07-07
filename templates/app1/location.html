@@ -1,0 +1,22 @@
+<DOCTYPE html>
+    {% extends 'app1/base.html' %}
+    {% load static %}
+    {% block body_block %}
+
+    <div class="card" style="margin-right: 10%;margin-left: 10%;">
+        <h6 style="margin-right: 0px;padding-right: 0px;padding-left: 5%;margin-top: 2%;">Available at:</h6>
+        <div class="table-responsive" style="margin-right: 5%;margin-left: 5%;">
+            <table class="table">
+                <tbody>
+                    {% for i in location%}
+                    <tr>
+                        <td>{{i.city}}<a href="app1/location/{{j.1}}"><img src= "{% static "images/cil_arrow-right.svg" %}"></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    {% endblock %}

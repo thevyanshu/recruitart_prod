@@ -1,0 +1,13 @@
+#bg {
+    background-size: 1800px 1200px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-position-x: left;
+    background-attachment: fixed;
+}
+
+#table {
+	width: 50%;
+	margin-left: 500px;
+	margin-top: 60px;
+}

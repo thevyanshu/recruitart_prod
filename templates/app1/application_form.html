@@ -1,0 +1,75 @@
+<DOCTYPE html>
+    {% extends 'app1/base.html' %}
+    {% block body_block %}
+    
+    <div class="card" style="margin-right: 10%;margin-left: 10%;">
+        <h6 style="margin-right: 0px;padding-right: 0px;padding-left: 5%;margin-top: 2%;">Search Results:</h6>
+        <div class="card-body" style="margin-right: 5%;margin-left: 5%;">
+            <h5>Profile #1</h5>
+            <p>Company Name:&nbsp; &nbsp; &nbsp; Company Name</p>
+            <p>Profile:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Profile</p>
+            <p>Location:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Location</p>
+            <p>Renumeration:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Renumeration</p>
+            <h5 class="text-center" style="margin-top: 5%;">Apply for this Profile</h5>
+            <form method="POST" >
+            
+                
+                <label class="form-label" style="margin-right: 10px;">Name
+                    {{ form.name }}
+                </label>
+                <label class="form-label" style="margin-left: 0px;margin-right: 0px;">E-mail
+                    {{ form.email }}
+                </label>
+                <label class="form-label" style="margin-left: 7px;margin-right: 0px;">Current Designation
+                    {{ form.current_designation }}
+                </label>
+                <label class="form-label" style="margin-left: 0px;margin-right: 0px;">Prefered Designation
+                    {{ form.preferred_designation }}
+                </label>
+                <label class="form-label" style="margin-left: 7px;margin-right: 0px;">Current Location
+                    {{ form.current_location }}
+                </label>
+                <label class="form-label" style="margin-left: 0px;margin-right: 0px;">Preferred Location
+                    {{ form.preferred_location }}
+                </label>
+                <label class="form-label" style="margin-left: 7px;margin-right: 0px;">Current Salary
+                    {{ form.current_salary }}
+                </label>
+                <label class="form-label" style="margin-left: 0px;margin-right: 0px;">Expected Salary
+                    {{ form.expected_salary }}
+                </label>
+    
+                <label class="form-label" style="margin-left: 7px;margin-right: 0px;">Can Join
+                    {{ form.can_join }}
+                </label>
+            
+                <label class="form-label" style="margin-left: 0px;margin-right: 0px;">Mobile Number
+                    {{ form.mobile_no }}
+                </label>
+                <label class="form-label" style="margin-left: 7px;margin-right: 0px;">Alternate Mobile
+                    {{ form.alternate_mobile }}
+                </label>
+                <label class="form-label" style="margin-left: 0px;margin-right: 0px;">Total Experience
+                    {{ form.total_experience }}
+                </label>
+                <label class="form-label" style="margin-left: 7px;margin-right: 0px;">PG Name
+                    {{ form.pg_name }}
+                </label>
+                <label class="form-label" style="margin-right: 10px;">UG Name
+                    {{ form.ug_name }}
+                </label>
+                <label class="form-label" style="margin-right: 0px;">Message
+                    {{ form.message }}
+                </label>
+                <div class="form-check">
+                    {{ form.agree }}
+                    <label class="form-check-label" for="formCheck-1" style="color: #2d3384;font-weight: bold;">By clicking the box we agree to terms &amp; conditions<br></label>
+                </div>
+                <button class="btn btn-primary" type="Submit" style="background: #2d3384;width: 178px;height: 70px;font-size: 20px;transform-origin: center;font-weight: bold;">Submit</button>
+                
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    {% endblock %}
