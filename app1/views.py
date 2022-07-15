@@ -31,8 +31,26 @@ def location(request, title_id):
     l = Location.objects.filter(job_title=title_id).values()
     print(title_id)
     print(l)
-    return render(request, 'app1/location.html', {'location' : l})
+    return render(request, 'app1/location.html', {'location' : l, 'title_id': title_id})
 
+def job_search(request, title_id, location_id):
+    #j = JobPost.objects.filter(job_title_id=2).values
+    j = []
+    jb = JobPost.objects.values()
+    print(jb)
+    for i in jb:
+        #if ((i.job_title_id == title_id) and (i.location_id == location_id)):
+        #    j.append(i)
+        print(i)
+    l = Location.objects.filter(id=location_id).values()
+    t = JobTitle.objects.filter(id=title_id).values()
+    print(title_id)
+    print(location_id)
+    print(j)
+    print(jb)
+    print(t)
+    print(l)
+    return render(request, 'app1/search.html', {'location' : l,'job' : j, 'job_title' : t})
 def application_form(request) :
     form = forms.ApplicationForm()
 

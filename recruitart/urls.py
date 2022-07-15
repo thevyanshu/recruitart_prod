@@ -20,5 +20,9 @@ from app1 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('app1/', include('app1.urls')),
+    path('',views.index, name='index'),
     path('location/<int:title_id>', views.location, name='location'),
+    path('application_form/', views.application_form, name='application_form'),
+    path('location/search/<int:title_id>/<int:location_id>', views.job_search, name='search'),
+    #path('application_form/')
 ]

@@ -10,7 +10,7 @@
                 <tbody>
                     {% for i in location%}
                     <tr>
-                        <td>{{i.city}}<a href="app1/location/{{j.1}}"><img src= "{% static "images/cil_arrow-right.svg" %}"></a></td>
+                        <td>{{i.city}}<a href="search/{{ title_id }}/{{ i.id }}"><img src= "{% static "images/cil_arrow-right.svg" %}"></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

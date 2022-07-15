@@ -24,7 +24,6 @@ class Location(models.Model):
     
     city = models.CharField(max_length=50)
     job_title = models.ManyToManyField(JobTitle)
-    
     def __str__(self):
         return self.city
     
@@ -33,14 +32,14 @@ class Location(models.Model):
     
 class JobPost(models.Model):
     
-    title = models.ForeignKey(JobTitle, on_delete=models.CASCADE)
+    job_title = models.ForeignKey(JobTitle, on_delete=models.CASCADE)
     company_name = models.CharField(max_length=255)
     remuneration = models.CharField(max_length=255)
     job_description = models.TextField()
-
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
     
     def __str__(self):
-        return str(self.title)
+        return str(self.company_name)
     
     #def __str__(self):
     #    return self.company_name
