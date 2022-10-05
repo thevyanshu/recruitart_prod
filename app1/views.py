@@ -12,13 +12,14 @@ def index(request):
     
     for i in range(len(jb_lst)):
         cat_id = jb_lst[i]['category_id']
+        job_id = jb_lst[i]['id']
         c = Category.objects.filter(id=cat_id).values()
         print(c)
         for j in c:
             if j["category_name"] == "Clinician":
-                clinician.append([jb_lst[i]['title'],cat_id])
+                clinician.append([jb_lst[i]['title'],job_id])
             else:
-                non_clinician.append([jb_lst[i]['title'],cat_id])
+                non_clinician.append([jb_lst[i]['title'],job_id])
                 
     print(non_clinician)
     print(clinician)
@@ -34,24 +35,22 @@ def location(request, title_id):
     return render(request, 'app1/location.html', {'location' : l, 'title_id': title_id})
 
 def job_search(request, title_id, location_id):
-    #j = JobPost.objects.filter(job_title_id=2).values
-    j = []
+    j = JobPost.objects.filter(job_title=title_id).values()
+    #j = []
     jb = JobPost.objects.values()
-    print(jb)
-    for i in jb:
-        #if ((i.job_title_id == title_id) and (i.location_id == location_id)):
-        #    j.append(i)
-        print(i)
+    #print(jb)
     l = Location.objects.filter(id=location_id).values()
     t = JobTitle.objects.filter(id=title_id).values()
     print(title_id)
     print(location_id)
     print(j)
-    print(jb)
-    print(t)
-    print(l)
+    #print(jb)
+    #print(t)
+    #print(l)
     return render(request, 'app1/search.html', {'location' : l,'job' : j, 'job_title' : t})
-def application_form(request) :
+def application_form(request,title_id, job_post) :
+    j = JobPost.objects.filter(id=job_post).values()
+    
     form = forms.ApplicationForm()
 
     if request.method == 'POST':
@@ -79,7 +78,8 @@ def application_form(request) :
             applications.ug_name = form.cleaned_data['ug_name']
             applications.message = form.cleaned_data['message']
             applications.resume = form.cleaned_data['resume']
+            applications.jobpost = job_post
             applications.save()
         else:
             form = forms.FormName()
-    return render(request, 'app1/application_form.html', {'form':form})
+    return render(request, 'app1/application_form.html', {'form':form, 'job' : j})
